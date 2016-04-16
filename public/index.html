@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <script src="library/jquery-1.8.3.js"></script>
+    <script>
+        $.get('/api/posts',function(res){
+            console.log(res);
+            var $posts = $('#posts');
+            res.data.forEach(function(post){
+                var $post = $('<div>');
+                $post.append('<div class="title" style="color:red;font-size:24px;">' + post.title + '</div>');
+                $post.append('<div class="content">' + post.content + '</div>')
+                $posts.append($post);
+            })
+        });
+    </script>
+</head>
+<body>
+   <div class="posts" id="posts">
+            
+   </div> 
+</body>
+</html>
