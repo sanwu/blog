@@ -55,4 +55,49 @@ gulp.task('watchServer', ['buildServer','copyServerDepRes'], function() {
 });
 
 
-gulp.task('dev',['watchServer']);
+gulp.task('buildView',function(){
+   var tsconfig = 'src/view/tsconfig.json';
+   var tp = ts.createProject(tsconfig,{
+      sortOutput: true,
+      typescript: tsmain
+   });
+   var tsRequest = tp.src()
+         .pipe(sourcemaps.init())
+         .pipe(ts(tp));
+   return tsRequest.js
+            .pipe(sourcemaps.write({includeContent: false,sourceRoot: '..'}))
+            .pipe(gulp.dest(getConfigOutPath(tsconfig)));
+});
+
+gulp.task('copyViewDepRes', function() {
+    return gulp.src([
+        'build/view.js'
+    ], { base: '.' })
+    .pipe(gulp.dest('public'));
+})
+
+
+
+gulp.task('watchView', ['buildView','copyViewDepRes'], function() {
+  var tsconfig = 'src/view/tsconfig.json'; 
+  var runtimeTSConfig = jsonfile.readFileSync(tsconfig)
+  var filesGlob = runtimeTSConfig.filesGlob;
+  var prjPath = path.dirname(tsconfig);
+
+  for(var i=0;i<filesGlob.length;i++){
+    var fileGlob = path.join(prjPath,filesGlob[i]);
+    gulp.watch(fileGlob, ['buildView']);
+  }
+
+  var viewFile = path.join(prjPath, './build/view.js');
+  gulp.watch(viewFile, ['copyViewDepRes']);
+  // var blFiles = path.join(prjPath, './**/*.blend');
+  // gulp.watch(blFiles, ['copyToolsDepRes']);
+  // var htmlFiles = path.join(prjPath, './**/*.html');
+  // gulp.watch(htmlFiles, ['copyServerDepRes']);
+});
+
+
+
+
+gulp.task('dev',['watchServer','watchView']);

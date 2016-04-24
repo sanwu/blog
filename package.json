@@ -5,9 +5,7 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "node webpack.server.js",
-    "dev2": "webpack-dev-server --inline --hot --quiet"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,15 +16,15 @@
     "jquery": "^2.2.2",
     "multer": "^1.1.0",
     "nedb": "^1.8.0",
+    "radium": "^0.17.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.4.1",
+    "reactcss": "^0.4.5",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1",
     "redux-thunk": "^2.0.1",
-    "requirejs": "^2.2.0",
-    "systemjs": "^0.19.26",
-    "typescript-require": "^0.2.9"
+    "requirejs": "^2.2.0"
   },
   "devDependencies": {
     "babel": "^6.1.18",

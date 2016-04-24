@@ -1,0 +1,26 @@
+[ERR!] cwd  : E:\Z-Project\blog
+[ERR!] os   : Windows_NT 10.0.10586
+[ERR!] argv : "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\tsd\\build\\cli.js" "install" "radium" "--save"
+[ERR!] node : v4.2.3
+[ERR!] tsd  : 0.6.5
+[ERR!] Error: read ECONNRESET
+[ERR!] CODE : ECONNRESET
+[ERR!] read ECONNRESET
+This is most likely not a problem with tsd itself
+and is related to network connectivity.
+In most cases you are behind a proxy or have bad network settings.
+
+If you are behind a proxy, please make sure that the
+'proxy' config is set properly.  See: https://github.com/DefinitelyTyped/tsd#tsdrc
+[ERR!] 
+Error: read ECONNRESET
+    at exports._errnoException (util.js:874:11)
+    at TLSWrap.onread (net.js:544:26)
+
+[ERR!] tsd.json could not be retrieved
+
+[ERR!] .tsdrc could not be retrieved
+
+[ERR!] Please include the following file with any support request:
+    E:\Z-Project\blog\tsd-debug.log
+
