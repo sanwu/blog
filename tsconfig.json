@@ -3,7 +3,9 @@
     "target": "es6",
     "jsx": "react",
     //"jsx":"preserve",
-    "sourceMap": true
+    "sourceMap": true,
+    "experimentalDecorators":true,
+    "outDir":"./build"
   },
   "exclude": [
     "node_modules"

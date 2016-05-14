@@ -89,8 +89,8 @@ gulp.task('watchView', ['buildView','copyViewDepRes'], function() {
     gulp.watch(fileGlob, ['buildView']);
   }
 
-  var viewFile = path.join(prjPath, './build/view.js');
-  gulp.watch(viewFile, ['copyViewDepRes']);
+
+  gulp.watch(['./build/view.js'], ['copyViewDepRes']);
   // var blFiles = path.join(prjPath, './**/*.blend');
   // gulp.watch(blFiles, ['copyToolsDepRes']);
   // var htmlFiles = path.join(prjPath, './**/*.html');
